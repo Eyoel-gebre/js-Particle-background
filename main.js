@@ -89,7 +89,6 @@ function getRandomInt(min, max) {
 //creates all the initial particles
 function initializeParticles(){
     var numOfParticles = Math.round(canvas.width/150 * canvas.height/150 * 2);
-    console.log(numOfParticles);
     for(var i = 0; i<numOfParticles; i++){
         var x = getRandomInt(0, canvas.width);
         var y = getRandomInt(0, canvas.height);
@@ -111,9 +110,7 @@ function animate(){
         particles[i].update();
     }
     connect();
-    console.log(d);
 } 
-var d = 0;
 //connects particles with line based off of distance
 function connect(){
     var opacity = 1;
@@ -128,7 +125,6 @@ function connect(){
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
                 ctx.stroke();
-                d = distance;
             }
         }
     }
